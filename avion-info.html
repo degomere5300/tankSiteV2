@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Fiche technique avion</title>
+    <link rel="stylesheet" href="CSS/style.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1 class="main-title">Avions WWII</h1>
+            <nav>
+                <a href="index.html">Chars</a> |
+                <a href="avions.html" class="active">Avions</a>
+            </nav>
+        </div>
+    </header>
+    <div id="tank-details-container">
+        <h2 id="planeName"></h2>
+        <div id="tankDetails"></div>
+        <div class="center">
+            <a href="avions.html" class="back-btn">← Retour à la liste</a>
+        </div>
+    </div>
+    <footer>
+        <div class="container">
+            <p>2025 Avions WWII - Projet étudiant</p>
+        </div>
+    </footer>
+    <script>
+        // Récupère le nom de l'avion dans l'URL
+        const params = new URLSearchParams(window.location.search);
+        const avion = params.get('avion');
+        document.getElementById('planeName').textContent = avion;
+
+        // Fiches techniques des avions
+        const details = {
+            "Yak-3": {
+                "Pays": "URSS",
+                "Type": "Chasseur",
+                "Année": "1944",
+                "Armement": "1 canon de 20 mm, 2 mitrailleuses de 12,7 mm",
+                "Vitesse max": "655 km/h",
+                "Envergure": "9,2 m",
+                "Longueur": "8,5 m",
+                "Production": "~4 848",
+                "Description": "Le Yakovlev Yak-3 est l'un des meilleurs chasseurs soviétiques de la Seconde Guerre mondiale, apprécié pour sa maniabilité."
+            },
+            "Il-2 Sturmovik": {
+                "Pays": "URSS",
+                "Type": "Assaut",
+                "Année": "1941",
+                "Armement": "2 canons de 23 mm, 2 mitrailleuses de 7,62 mm, bombes/roquettes",
+                "Vitesse max": "414 km/h",
+                "Envergure": "14,6 m",
+                "Longueur": "11,6 m",
+                "Production": "~36 183",
+                "Description": "L'Ilyushin Il-2 Sturmovik est un avion d'attaque au sol soviétique, surnommé 'le char volant'."
+            },
+            "Bf 109": {
+                "Pays": "Allemagne",
+                "Type": "Chasseur",
+                "Année": "1937",
+                "Armement": "1 canon de 20 mm, 2 mitrailleuses de 7,92 mm",
+                "Vitesse max": "640 km/h",
+                "Envergure": "9,9 m",
+                "Longueur": "8,9 m",
+                "Production": "~33 984",
+                "Description": "Le Messerschmitt Bf 109 est le principal chasseur allemand de la guerre, produit à grande échelle."
+            },
+            "Fw 190": {
+                "Pays": "Allemagne",
+                "Type": "Chasseur",
+                "Année": "1941",
+                "Armement": "2 canons de 20 mm, 2 mitrailleuses de 7,92 mm",
+                "Vitesse max": "656 km/h",
+                "Envergure": "10,5 m",
+                "Longueur": "9,1 m",
+                "Production": "~20 000",
+                "Description": "Le Focke-Wulf Fw 190 est un chasseur allemand très performant, utilisé sur tous les fronts."
+            },
+            "P-51 Mustang": {
+                "Pays": "États-Unis",
+                "Type": "Chasseur",
+                "Année": "1942",
+                "Armement": "6 mitrailleuses de 12,7 mm",
+                "Vitesse max": "703 km/h",
+                "Envergure": "11,3 m",
+                "Longueur": "9,8 m",
+                "Production": "~15 875",
+                "Description": "Le North American P-51 Mustang est un chasseur d'escorte américain célèbre pour sa portée et ses performances."
+            },
+            "B-17 Flying Fortress": {
+                "Pays": "États-Unis",
+                "Type": "Bombardier lourd",
+                "Année": "1938",
+                "Armement": "13 mitrailleuses de 12,7 mm, bombes",
+                "Vitesse max": "462 km/h",
+                "Envergure": "31,6 m",
+                "Longueur": "22,7 m",
+                "Production": "~12 731",
+                "Description": "Le Boeing B-17 Flying Fortress est un bombardier lourd américain, célèbre pour sa robustesse."
+            }
+        };
+
+        // Affichage de la fiche
+        const planeData = details[avion];
+        const planeDetailsDiv = document.getElementById('tankDetails');
+        if (planeData) {
+            let html = "<ul>";
+            for (const [key, value] of Object.entries(planeData)) {
+                if (key !== "Description") {
+                    html += `<li><strong>${key} :</strong> ${value}</li>`;
+                }
+            }
+            html += "</ul>";
+            if (planeData.Description) {
+                html += `<p class="desc">${planeData.Description}</p>`;
+            }
+            planeDetailsDiv.innerHTML = html;
+        } else {
+            planeDetailsDiv.textContent = "Aucune information disponible pour cet avion.";
+        }
+    </script>
+</body>
+</html>

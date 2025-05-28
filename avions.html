@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Recherche d'Annonces - Avions WWII</title>
+    <link rel="stylesheet" href="CSS/style.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1 class="main-title">Avions WWII</h1>
+            <input type="text" id="searchBar" placeholder="Rechercher un avion..." onkeyup="searchAds()">
+        </div>
+        <nav>
+            <a href="index.html">Chars</a> | 
+            <a href="avions.html" class="active">Avions</a>
+        </nav>
+    </header>
+    <main>
+        <section>
+            <h2 id="titre-avion-sovietique">Avions soviétiques</h2>
+            <div id="adsAvionSovietique" class="ads-container">
+                <div class="ad" onclick="openPlaneInfo('Yak-3')">
+                    <h3>Yak-3</h3>
+                    <img src="IMG/yak3.jpg" alt="Yak-3">
+                    <p>prix : entre 200 000 € et 400 000 €</p>
+                </div>
+                <div class="ad" onclick="openPlaneInfo('Il-2 Sturmovik')">
+                    <h3>Il-2 Sturmovik</h3>
+                    <img src="IMG/il2.jpg" alt="Il-2 Sturmovik">
+                    <p>prix : entre 300 000 € et 600 000 €</p>
+                </div>
+                <!-- Ajoute d'autres avions soviétiques ici -->
+            </div>
+        </section>
+        <section>
+            <h2 id="titre-avion-allemand">Avions allemands</h2>
+            <div id="adsAvionAllemand" class="ads-container">
+                <div class="ad" onclick="openPlaneInfo('Bf 109')">
+                    <h3>Bf 109</h3>
+                    <img src="IMG/bf109.jpg" alt="Bf 109">
+                    <p>prix : entre 250 000 € et 500 000 €</p>
+                </div>
+                <div class="ad" onclick="openPlaneInfo('Fw 190')">
+                    <h3>Fw 190</h3>
+                    <img src="IMG/fw190.jpg" alt="Fw 190">
+                    <p>prix : entre 300 000 € et 600 000 €</p>
+                </div>
+                <!-- Ajoute d'autres avions allemands ici -->
+            </div>
+        </section>
+        <section>
+            <h2 id="titre-avion-americain">Avions américains</h2>
+            <div id="adsAvionAmericain" class="ads-container">
+                <div class="ad" onclick="openPlaneInfo('P-51 Mustang')">
+                    <h3>P-51 Mustang</h3>
+                    <img src="IMG/p51.jpg" alt="P-51 Mustang">
+                    <p>prix : entre 400 000 € et 800 000 €</p>
+                </div>
+                <div class="ad" onclick="openPlaneInfo('B-17 Flying Fortress')">
+                    <h3>B-17 Flying Fortress</h3>
+                    <img src="IMG/b17.jpg" alt="B-17 Flying Fortress">
+                    <p>prix : entre 1 000 000 € et 2 000 000 €</p>
+                </div>
+                <!-- Ajoute d'autres avions américains ici -->
+            </div>
+        </section>
+    </main>
+    <footer>
+        <div class="container">
+            <p>2025 Avions WWII - Projet étudiant</p>
+        </div>
+    </footer>
+    <script src="script.js"></script>
+    <script>
+        function openPlaneInfo(planeName) {
+            window.location.href = `avion-info.html?avion=${encodeURIComponent(planeName)}`;
+        }
+    </script>
+</body>
+</html>

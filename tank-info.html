@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Fiche technique char</title>
+    <link rel="stylesheet" href="CSS/style.css">
+</head>
+<body>
+    <div id="tank-details-container">
+        <h2 id="tankName"></h2>
+        <div id="tankDetails"></div>
+        <div class="center">
+            <a href="index.html" class="back-btn">← Retour à la liste</a>
+        </div>
+    </div>
+    <footer>
+        <div class="container">
+            <p>2025 Tanks WWII - Projet étudiant</p>
+        </div>
+    </footer>
+    <script src="script.js"></script>
+    <script>
+        // Récupère les paramètres de l'URL (ex: ?tank=T-34)
+        const params = new URLSearchParams(window.location.search);
+        // Récupère la valeur du paramètre 'tank' (le nom du char sélectionné)
+        const tank = params.get('tank');
+        // Affiche le nom du char dans le titre de la fiche
+        document.getElementById('tankName').textContent = tank;
+
+        // Fiches techniques détaillées (15 chars par nation, fiches enrichies)
+        const details = {
+            // --- URSS ---
+            "T-34": {
+                "Pays": "URSS",
+                "Type": "Char moyen",
+                "Année": "1940",
+                "Armement": "Canon de 76,2 mm ou 85 mm",
+                "Blindage": "45-60 mm",
+                "Poids": "26-32 tonnes",
+                "Équipage": "4-5",
+                "Production": "~84 000",
+                "Vitesse max": "53 km/h",
+                "Description": "Le T-34 est le char moyen soviétique le plus produit de la guerre, célèbre pour sa robustesse, sa mobilité et sa simplicité de fabrication.",
+                "Video": `<iframe width="560" height="315" src="https://www.youtube.com/embed/4X4C1G8Qw84?si=zS1FbOHgo2_moB7u" title="Présentation T-34" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>`
+            },
+            "KV-1": {
+                "Pays": "URSS",
+                "Type": "Char lourd",
+                "Année": "1939",
+                "Armement": "Canon de 76,2 mm",
+                "Blindage": "75-90 mm",
+                "Poids": "45 tonnes",
+                "Équipage": "5",
+                "Production": "~5 219",
+                "Vitesse max": "35 km/h",
+                "Description": "Le KV-1 est un char lourd soviétique réputé pour son blindage épais, difficile à percer lors de l'invasion allemande de 1941."
+            },
+            "T-70": {
+                "Pays": "URSS",
+                "Type": "Char léger",
+                "Année": "1942",
+                "Armement": "Canon de 45 mm",
+                "Blindage": "10-60 mm",
+                "Poids": "9,2 tonnes",
+                "Équipage": "2",
+                "Production": "~8 226",
+                "Vitesse max": "45 km/h",
+                "Description": "Le T-70 est un char léger soviétique utilisé pour la reconnaissance et l'appui d'infanterie."
+            },
+            "IS-2": {
+                "Pays": "URSS",
+                "Type": "Char lourd",
+                "Année": "1943",
+                "Armement": "Canon de 122 mm",
+                "Blindage": "30-120 mm",
+                "Poids": "46 tonnes",
+                "Équipage": "4",
+                "Production": "~3 854",
+                "Vitesse max": "37 km/h",
+                "Description": "L'IS-2 est un char lourd soviétique armé d'un puissant canon de 122 mm, conçu pour briser les défenses allemandes."
+            },
+            "SU-100": {
+                "Pays": "URSS",
+                "Type": "Chasseur de chars",
+                "Année": "1944",
+                "Armement": "Canon de 100 mm",
+                "Blindage": "20-75 mm",
+                "Poids": "31,6 tonnes",
+                "Équipage": "4",
+                "Production": "~2 335",
+                "Vitesse max": "48 km/h",
+                "Description": "Le SU-100 est un chasseur de chars soviétique basé sur le châssis du T-34, très efficace contre les blindés allemands."
+            },
+            "BT-7": {
+                "Pays": "URSS",
+                "Type": "Char léger",
+                "Année": "1935",
+                "Armement": "Canon de 45 mm",
+                "Blindage": "6-22 mm",
+                "Poids": "13,8 tonnes",
+                "Équipage": "3",
+                "Production": "~5 556",
+                "Vitesse max": "53 km/h",
+                "Description": "Le BT-7 est un char léger soviétique rapide et maniable, utilisé en début de conflit."
+            },
+            "KV-2": {
+                "Pays": "URSS",
+                "Type": "Char lourd",
+                "Année": "1940",
+                "Armement": "Obusier de 152 mm",
+                "Blindage": "75-110 mm",
+                "Poids": "52 tonnes",
+                "Équipage": "6",
+                "Production": "~334",
+                "Vitesse max": "25 km/h",
+                "Description": "Le KV-2 est un char lourd soviétique équipé d'une tourelle massive et d'un obusier de 152 mm."
+            },
+            "ISU-152": {
+                "Pays": "URSS",
+                "Type": "Canon automoteur",
+                "Année": "1943",
+                "Armement": "Canon de 152 mm",
+                "Blindage": "60-90 mm",
+                "Poids": "46 tonnes",
+                "Équipage": "5",
+                "Production": "~3 242",
+                "Vitesse max": "37 km/h",
+                "Description": "L'ISU-152 est un canon automoteur soviétique surnommé 'Zveroboy' (tueur de bêtes) pour sa capacité à détruire les chars lourds allemands."
+            },
+            "SU-76": {
+                "Pays": "URSS",
+                "Type": "Canon automoteur",
+                "Année": "1942",
+                "Armement": "Canon de 76,2 mm",
+                "Blindage": "10-35 mm",
+                "Poids": "10,5 tonnes",
+                "Équipage": "4",
+                "Production": "~14 292",
+                "Vitesse max": "45 km/h",
+                "Description": "Le SU-76 est le canon automoteur soviétique le plus produit, utilisé pour l'appui d'infanterie."
+            },
+            "T-26": {
+                "Pays": "URSS",
+                "Type": "Char léger",
+                "Année": "1931",
+                "Armement": "Canon de 45 mm",
+                "Blindage": "6-15 mm",
+                "Poids": "9,6 tonnes",
+                "Équipage": "3",
+                "Production": "~11 218",
+                "Vitesse max": "31 km/h",
+                "Description": "Le T-26 est un char léger soviétique largement utilisé dans les années 1930 et au début de la guerre."
+            },
+            "T-60": {
+                "Pays": "URSS",
+                "Type": "Char léger",
+                "Année": "1941",
+                "Armement": "Canon de 20 mm",
+                "Blindage": "7-35 mm",
+                "Poids": "6,4 tonnes",
+                "Équipage": "2",
+                "Production": "~6 292",
+                "Vitesse max": "44 km/h",
+                "Description": "Le T-60 est un petit char léger soviétique utilisé pour la reconnaissance."
+            },
+            "SU-85": {
+                "Pays": "URSS",
+                "Type": "Chasseur de chars",
+                "Année": "1943",
+                "Armement": "Canon de 85 mm",
+                "Blindage": "20-45 mm",
+                "Poids": "29,6 tonnes",
+                "Équipage": "4",
+                "Production": "~2 650",
+                "Vitesse max": "55 km/h",
+                "Description": "Le SU-85 est un chasseur de chars soviétique basé sur le T-34, armé d'un canon de 85 mm."
+            },
+            "IS-3": {
+                "Pays": "URSS",
+                "Type": "Char lourd",
+                "Année": "1945",
+                "Armement": "Canon de 122 mm",
+                "Blindage": "110-220 mm",
+                "Poids": "46 tonnes",
+                "Équipage": "4",
+                "Production": "~2 311",
+                "Vitesse max": "40 km/h",
+                "Description": "L'IS-3 est un char lourd soviétique à la silhouette révolutionnaire, apparu à la toute fin de la guerre."
+            },
+            "T-44": {
+                "Pays": "URSS",
+                "Type": "Char moyen",
+                "Année": "1944",
+                "Armement": "Canon de 85 mm",
+                "Blindage": "75-120 mm",
+                "Poids": "31,8 tonnes",
+                "Équipage": "4",
+                "Production": "~1 823",
+                "Vitesse max": "53 km/h",
+                "Description": "Le T-44 est un char moyen soviétique, précurseur du T-54."
+            },
+            "SU-122": {
+                "Pays": "URSS",
+                "Type": "Canon automoteur",
+                "Année": "1942",
+                "Armement": "Obusier de 122 mm",
+                "Blindage": "15-45 mm",
+                "Poids": "30,9 tonnes",
+                "Équipage": "5",
+                "Production": "~1 150",
+                "Vitesse max": "55 km/h",
+                "Description": "Le SU-122 est un canon automoteur soviétique conçu pour l'appui-feu rapproché."
+            },
+
+            // --- Allemagne ---
+            "Panzer IV": {
+                "Pays": "Allemagne",
+                "Type": "Char moyen",
+                "Année": "1937",
+                "Armement": "Canon de 75 mm",
+                "Blindage": "10-80 mm",
+                "Poids": "25 tonnes",
+                "Équipage": "5",
+                "Production": "~8 553",
+                "Vitesse max": "42 km/h",
+                "Description": "Le Panzer IV est le char moyen allemand le plus produit, utilisé sur tous les fronts."
+            },
+            "Panzer III": {
+                "Pays": "Allemagne",
+                "Type": "Char moyen",
+                "Année": "1939",
+                "Armement": "Canon de 37 mm puis 50 mm",
+                "Blindage": "15-70 mm",
+                "Poids": "23 tonnes",
+                "Équipage": "5",
+                "Production": "~5 774",
+                "Vitesse max": "40 km/h",
+                "Description": "Le Panzer III a été le principal char allemand au début de la guerre."
+            },
+            "Tiger I": {
+                "Pays": "Allemagne",
+                "Type": "Char lourd",
+                "Année": "1942",
+                "Armement": "Canon de 88 mm",
+                "Blindage": "25-120 mm",
+                "Poids": "57 tonnes",
+                "Équipage": "5",
+                "Production": "~1 347",
+                "Vitesse max": "38 km/h",
+                "Description": "Le Tiger I est un char lourd allemand célèbre pour sa puissance de feu et son blindage."
+            },
+            "Tiger II": {
+                "Pays": "Allemagne",
+                "Type": "Char lourd",
+                "Année": "1944",
+                "Armement": "Canon de 88 mm KwK 43 L/71",
+                "Blindage": "100-185 mm",
+                "Poids": "69,8 tonnes",
+                "Équipage": "5",
+                "Production": "~492",
+                "Vitesse max": "41,5 km/h",
+                "Description": "Le Tiger II, ou Königstiger, est le char lourd allemand le plus puissant de la Seconde Guerre mondiale.",
+                "Video": `<iframe width="560" height="315" src="https://www.youtube.com/embed/2n7Kk2b3Fq4" title="Présentation Tiger II" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>`
+            },
+            "Panther": {
+                "Pays": "Allemagne",
+                "Type": "Char moyen",
+                "Année": "1943",
+                "Armement": "Canon de 75 mm KwK 42 L/70",
+                "Blindage": "16-120 mm",
+                "Poids": "44,8 tonnes",
+                "Équipage": "5",
+                "Production": "~6 000",
+                "Vitesse max": "46 km/h",
+                "Description": "Le Panther est considéré comme l'un des meilleurs chars moyens de la guerre."
+            },
+            "StuG III": {
+                "Pays": "Allemagne",
+                "Type": "Chasseur de chars / Canon d'assaut",
+                "Année": "1940",
+                "Armement": "Canon de 75 mm StuK 40 L/48",
+                "Blindage": "16-80 mm",
+                "Poids": "23,9 tonnes",
+                "Équipage": "4",
+                "Production": "~10 619",
+                "Vitesse max": "40 km/h",
+                "Description": "Le Sturmgeschütz III (StuG III) est le véhicule blindé allemand le plus produit de la guerre.",
+                "Video": `<iframe width="560" height="315" src="https://www.youtube.com/embed/2v0QnQkQb1g" title="Présentation StuG III" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>`
+            },
+            "Jagdtiger": {
+                "Pays": "Allemagne",
+                "Type": "Chasseur de chars",
+                "Année": "1944",
+                "Armement": "Canon de 128 mm",
+                "Blindage": "40-250 mm",
+                "Poids": "75 tonnes",
+                "Équipage": "6",
+                "Production": "~88",
+                "Vitesse max": "34 km/h",
+                "Description": "Le Jagdtiger est le chasseur de chars le plus lourd de la guerre."
+            },
+            "Hetzer": {
+                "Pays": "Allemagne",
+                "Type": "Chasseur de chars",
+                "Année": "1944",
+                "Armement": "Canon de 75 mm",
+                "Blindage": "8-60 mm",
+                "Poids": "16 tonnes",
+                "Équipage": "4",
+                "Production": "~2 584",
+                "Vitesse max": "42 km/h",
+                "Description": "Le Hetzer est un chasseur de chars compact et efficace."
+            },
+            "Elefant": {
+                "Pays": "Allemagne",
+                "Type": "Chasseur de chars",
+                "Année": "1943",
+                "Armement": "Canon de 88 mm Pak 43/2",
+                "Blindage": "100-200 mm",
+                "Poids": "65 tonnes",
+                "Équipage": "6",
+                "Production": "~91",
+                "Vitesse max": "30 km/h",
+                "Description": "L'Elefant est un chasseur de chars lourd, très blindé mais peu mobile."
+            },
+            "Nashorn": {
+                "Pays": "Allemagne",
+                "Type": "Chasseur de chars",
+                "Année": "1943",
+                "Armement": "Canon de 88 mm Pak 43",
+                "Blindage": "10-30 mm",
+                "Poids": "24 tonnes",
+                "Équipage": "5",
+                "Production": "~494",
+                "Vitesse max": "42 km/h",
+                "Description": "Le Nashorn est un chasseur de chars à canon puissant mais faiblement blindé."
+            },
+            "Brummbär": {
+                "Pays": "Allemagne",
+                "Type": "Canon d'assaut",
+                "Année": "1943",
+                "Armement": "Obusier de 150 mm",
+                "Blindage": "50-100 mm",
+                "Poids": "28,2 tonnes",
+                "Équipage": "5",
+                "Production": "~306",
+                "Vitesse max": "40 km/h",
+                "Description": "Le Brummbär est un canon d'assaut conçu pour l'appui rapproché de l'infanterie."
+            },
+            "Marder III": {
+                "Pays": "Allemagne",
+                "Type": "Chasseur de chars",
+                "Année": "1942",
+                "Armement": "Canon de 75 mm Pak 40",
+                "Blindage": "10-50 mm",
+                "Poids": "10,8 tonnes",
+                "Équipage": "4",
+                "Production": "~1 576",
+                "Vitesse max": "42 km/h",
+                "Description": "Le Marder III est un chasseur de chars léger basé sur un châssis tchèque."
+            },
+            "Panzer II": {
+                "Pays": "Allemagne",
+                "Type": "Char léger",
+                "Année": "1936",
+                "Armement": "Canon de 20 mm",
+                "Blindage": "5-35 mm",
+                "Poids": "8,9 tonnes",
+                "Équipage": "3",
+                "Production": "~1 856",
+                "Vitesse max": "40 km/h",
+                "Description": "Le Panzer II est un char léger utilisé au début de la guerre."
+            },
+            "Panzer 38(t)": {
+                "Pays": "Allemagne",
+                "Type": "Char léger",
+                "Année": "1939",
+                "Armement": "Canon de 37 mm",
+                "Blindage": "10-50 mm",
+                "Poids": "9,7 tonnes",
+                "Équipage": "4",
+                "Production": "~1 400",
+                "Vitesse max": "42 km/h",
+                "Description": "Le Panzer 38(t) est un char tchèque utilisé par l'Allemagne après l'annexion de la Tchécoslovaquie."
+            },
+            "Jagdpanther": {
+                "Pays": "Allemagne",
+                "Type": "Chasseur de chars",
+                "Année": "1944",
+                "Armement": "Canon de 88 mm Pak 43",
+                "Blindage": "50-100 mm",
+                "Poids": "45,5 tonnes",
+                "Équipage": "5",
+                "Production": "~415",
+                "Vitesse max": "46 km/h",
+                "Description": "Le Jagdpanther est un chasseur de chars très performant basé sur le châssis du Panther."
+            },
+
+            // --- États-Unis ---
+            "M4 Sherman": {
+                "Pays": "États-Unis",
+                "Type": "Char moyen",
+                "Année": "1942",
+                "Armement": "Canon de 75 mm ou 76 mm",
+                "Blindage": "12-75 mm",
+                "Poids": "30 tonnes",
+                "Équipage": "5",
+                "Production": "~49 234",
+                "Vitesse max": "48 km/h",
+                "Description": "Le M4 Sherman est le char moyen principal des Alliés pendant la guerre, apprécié pour sa fiabilité et sa facilité de production."
+            },
+            "M26 Pershing": {
+                "Pays": "États-Unis",
+                "Type": "Char lourd",
+                "Année": "1945",
+                "Armement": "Canon de 90 mm",
+                "Blindage": "25-102 mm",
+                "Poids": "41,7 tonnes",
+                "Équipage": "5",
+                "Production": "~2 212",
+                "Vitesse max": "40 km/h",
+                "Description": "Le M26 Pershing est un char lourd américain introduit en 1945, capable d'affronter les chars allemands les plus puissants."
+            },
+            "M18 Hellcat": {
+                "Pays": "États-Unis",
+                "Type": "Chasseur de chars",
+                "Année": "1943",
+                "Armement": "Canon de 76 mm",
+                "Blindage": "9-25 mm",
+                "Poids": "17,7 tonnes",
+                "Équipage": "5",
+                "Production": "~2 507",
+                "Vitesse max": "89 km/h",
+                "Description": "Le M18 Hellcat est le chasseur de chars le plus rapide de la guerre."
+            },
+            "M10 Wolverine": {
+                "Pays": "États-Unis",
+                "Type": "Chasseur de chars",
+                "Année": "1942",
+                "Armement": "Canon de 76 mm",
+                "Blindage": "19-57 mm",
+                "Poids": "29,6 tonnes",
+                "Équipage": "5",
+                "Production": "~6 406",
+                "Vitesse max": "48 km/h",
+                "Description": "Le M10 Wolverine est un chasseur de chars américain basé sur le châssis du Sherman."
+            },
+            "M36 Jackson": {
+                "Pays": "États-Unis",
+                "Type": "Chasseur de chars",
+                "Année": "1944",
+                "Armement": "Canon de 90 mm",
+                "Blindage": "19-108 mm",
+                "Poids": "29,6 tonnes",
+                "Équipage": "5",
+                "Production": "~1 400",
+                "Vitesse max": "42 km/h",
+                "Description": "Le M36 Jackson est un chasseur de chars américain armé d'un puissant canon de 90 mm."
+            },
+            "M3 Lee": {
+                "Pays": "États-Unis",
+                "Type": "Char moyen",
+                "Année": "1941",
+                "Armement": "Canon de 75 mm + 37 mm",
+                "Blindage": "16-51 mm",
+                "Poids": "27,9 tonnes",
+                "Équipage": "7",
+                "Production": "~6 258",
+                "Vitesse max": "39 km/h",
+                "Description": "Le M3 Lee est un char moyen américain à double canon, utilisé principalement en Afrique du Nord."
+            },
+            "M5 Stuart": {
+                "Pays": "États-Unis",
+                "Type": "Char léger",
+                "Année": "1941",
+                "Armement": "Canon de 37 mm",
+                "Blindage": "13-51 mm",
+                "Poids": "15 tonnes",
+                "Équipage": "4",
+                "Production": "~8 885",
+                "Vitesse max": "58 km/h",
+                "Description": "Le M5 Stuart est un char léger américain rapide et maniable."
+            },
+            "M24 Chaffee": {
+                "Pays": "États-Unis",
+                "Type": "Char léger",
+                "Année": "1944",
+                "Armement": "Canon de 75 mm",
+                "Blindage": "13-38 mm",
+                "Poids": "18,4 tonnes",
+                "Équipage": "5",
+                "Production": "~4 731",
+                "Vitesse max": "56 km/h",
+                "Description": "Le M24 Chaffee est un char léger moderne, introduit en fin de guerre."
+            },
+            "M7 Priest": {
+                "Pays": "États-Unis",
+                "Type": "Obusier automoteur",
+                "Année": "1942",
+                "Armement": "Obusier de 105 mm",
+                "Blindage": "13-51 mm",
+                "Poids": "22,97 tonnes",
+                "Équipage": "7",
+                "Production": "~4 124",
+                "Vitesse max": "38 km/h",
+                "Description": "Le M7 Priest est un obusier automoteur américain utilisé pour l'appui-feu."
+            },
+            "M8 Greyhound": {
+                "Pays": "États-Unis",
+                "Type": "Auto-mitrailleuse",
+                "Année": "1943",
+                "Armement": "Canon de 37 mm",
+                "Blindage": "6-19 mm",
+                "Poids": "7,8 tonnes",
+                "Équipage": "4",
+                "Production": "~8 523",
+                "Vitesse max": "90 km/h",
+                "Description": "Le M8 Greyhound est une auto-mitrailleuse rapide utilisée pour la reconnaissance."
+            },
+            "M22 Locust": {
+                "Pays": "États-Unis",
+                "Type": "Char léger aéroporté",
+                "Année": "1943",
+                "Armement": "Canon de 37 mm",
+                "Blindage": "9-12 mm",
+                "Poids": "7,4 tonnes",
+                "Équipage": "3",
+                "Production": "~830",
+                "Vitesse max": "64 km/h",
+                "Description": "Le M22 Locust est un char léger aéroporté conçu pour les opérations aéroportées."
+            },
+            "T28 Super Heavy Tank": {
+                "Pays": "États-Unis",
+                "Type": "Char super-lourd",
+                "Année": "1945",
+                "Armement": "Canon de 105 mm",
+                "Blindage": "51-305 mm",
+                "Poids": "95 tonnes",
+                "Équipage": "8",
+                "Production": "2 prototypes",
+                "Vitesse max": "13 km/h",
+                "Description": "Le T28 est un char super-lourd expérimental américain, jamais utilisé en combat."
+            },
+            "M6 Heavy Tank": {
+                "Pays": "États-Unis",
+                "Type": "Char lourd",
+                "Année": "1942",
+                "Armement": "Canon de 76 mm + 37 mm",
+                "Blindage": "25-83 mm",
+                "Poids": "57 tonnes",
+                "Équipage": "6",
+                "Production": "40",
+                "Vitesse max": "35 km/h",
+                "Description": "Le M6 est un char lourd américain produit en petite série."
+            },
+            "M4A3E8 Sherman 'Easy Eight'": {
+                "Pays": "États-Unis",
+                "Type": "Char moyen",
+                "Année": "1944",
+                "Armement": "Canon de 76 mm",
+                "Blindage": "38-76 mm",
+                "Poids": "33,3 tonnes",
+                "Équipage": "5",
+                "Production": "Inclus dans la production totale du Sherman",
+                "Vitesse max": "47 km/h",
+                "Description": "Le M4A3E8 'Easy Eight' est une version améliorée du Sherman avec suspension HVSS."
+            },
+            "M3 Stuart": {
+                "Pays": "États-Unis",
+                "Type": "Char léger",
+                "Année": "1941",
+                "Armement": "Canon de 37 mm",
+                "Blindage": "13-44 mm",
+                "Poids": "12 tonnes",
+                "Équipage": "4",
+                "Production": "~13 859",
+                "Vitesse max": "58 km/h",
+                "Description": "Le M3 Stuart est un char léger américain utilisé sur tous les fronts."
+            }
+        };
+
+        // Récupère les données techniques du char sélectionné à partir de l'objet details
+        const tankData = details[tank];
+        // Sélectionne la div où afficher les informations du char
+        const tankDetailsDiv = document.getElementById('tankDetails');
+
+        // Si on a trouvé des données pour ce char
+        if (tankData) {
+            let html = "<ul>";
+            // Parcourt chaque propriété (sauf la description et la vidéo) pour l'afficher dans une liste
+            for (const [key, value] of Object.entries(tankData)) {
+                if (key !== "Description" && key !== "Image" && key !== "Video") {
+                    html += `<li><strong>${key} :</strong> ${value}</li>`;
+                }
+            }
+            html += "</ul>";
+            // Ajoute la description à la fin
+            if (tankData.Description) {
+                html += `<p>${tankData.Description}</p>`;
+            }
+            // Ajoute la vidéo si présente
+            if (tankData.Video) {
+                html += `<div class="video-container">${tankData.Video}</div>`;
+            }
+            // Affiche le tout dans la page
+            tankDetailsDiv.innerHTML = html;
+        } else {
+            // Si aucune donnée n'est trouvée, affiche un message d'erreur
+            tankDetailsDiv.textContent = "Aucune information disponible pour ce char.";
+        }
+    </script>
+</body>
+</html>
