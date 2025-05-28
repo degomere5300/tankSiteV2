@@ -258,7 +258,7 @@ nav a:hover, nav a.active {
     }
 }
 
-@media (max-width: 450px) {
+@media (max-width: 400px) {
     .ads-container {
         flex-direction: row !important;
         flex-wrap: wrap;
