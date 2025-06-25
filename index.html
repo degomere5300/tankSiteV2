@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recherche d'Annonces - Tanks WWII</title>
+    <link rel="stylesheet" href="CSS/style.css">
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <h1 class="main-title">Chars WWII</h1>
+            <input type="text" id="searchBar" placeholder="Rechercher..." onkeyup="searchAds()">
+            <!-- Dans le header, après le titre et la barre de recherche -->
+            <div class="mobile-menu">
+                <button id="menuToggle" aria-label="Ouvrir le menu">☰ Menu</button>
+                <div id="menuDropdown" class="menu-dropdown">
+                    <a href="index.html">Chars</a>
+                    <a href="avions.html">Avions</a>
+                    <a href="bateaux.html">Bateaux</a>
+                </div>
+            </div>
+            <nav class="desktop-nav">
+                <a href="index.html">Chars</a> |
+                <a href="avions.html">Avions</a> |
+                <a href="bateaux.html">Bateaux</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Filtre pays juste avant le main -->
+    <div class="filter-bar">
+        <select id="countryFilter" onchange="filterByCountry()">
+            <option value="all">Tous les pays</option>
+            <option value="sovietique">Soviétiques</option>
+            <option value="allemand">Allemands</option>
+            <option value="americain">Américains</option>
+            <option value="britannique">Britanniques</option>
+            <option value="japonais">Japonais</option>
+            <option value="italien">Italiens</option>
+        </select>
+    </div>
+
+    <main>
+        <section>
+            <h2 id="titre-sovietique">Chars soviétiques</h2>
+            <div id="adsContainer" class="ads-container">
+                <div class="ad" onclick="openTankInfo('T-34')">
+                    <h3>T-34</h3>
+                    <img src="IMG/T-34-76-1943_on_Panzermuseum_Munster.jpg" alt="Char T-34">
+                    <p>prix : entre 230 000 € et 460 000 €</p>
+                </div>
+                <div class="ad" onclick="openTankInfo('KV-1')">
+                    <h3>KV-1</h3>
+                    <img src="IMG/KV-1.jpg" alt="Char KV-1">
+                    <p>prix : entre 460 000 € et 920 000 €</p>
+                </div>
+                <div class="ad" onclick="openTankInfo('T-70')">
+                    <h3>T-70</h3>
+                    <img src="IMG/t70.webp" alt="Char T-70">
+                    <p>prix : entre 138 000 € et 276 000 €</p>
+                </div>
+                <div class="ad" onclick="openTankInfo('IS-2')">
+                    <h3>IS-2</h3>
+                    <img src="IMG/is-2.webp" alt="Char IS-2">
+                    <p>prix : entre 740 000 € et 1 380 000 €</p>
+                </div>
+                <div class="ad" onclick="openTankInfo('SU-100')">
+                    <h3>SU-100</h3>
+                    <img src="IMG/su-100.jpg" alt="Chasseur de char SU-100">
+                    <p>prix : entre 180 000 € et 350 000 €</p>
+                </div>
+                <div class="ad" onclick="openTankInfo('BT-7')">
+                    <h3>BT-7</h3>
+                    <img src="IMG/bt7.jpg" alt="Char léger BT-7">
+                    <p>prix : entre 120 000 € et 240 000 €</p>
+                </div>
+                <div class="ad" onclick="openTankInfo('KV-2')">
+                    <h3>KV-2</h3>
+                    <img src="IMG/kv2.jpg" alt="KV-2">
+                    <p>prix : entre 500 000 € et 900 000 €</p>
+                </div>
+                <div class="ad" onclick="openTankInfo('ISU-152')">
+                    <h3>ISU-152</h3>
+                    <img src="IMG/isu152.jpg" alt="ISU-152">
+                    <p>prix : entre 400 000 € et 800 000 €</p>
+                </div>
+                <div class="ad" onclick="openTankInfo('SU-76')">
+                    <h3>SU-76</h3>
+                    <img src="IMG/su76.jpg" alt="SU-76">
+                    <p>prix : entre 100 000 € et 200 000 €</p>
+                </div>
+                <div class="ad" onclick="openTankInfo('T-26')">
+                    <h3>T-26</h3>
+                    <img src="IMG/t26.jpg" alt="T-26">
+                    <p>prix : entre 90 000 € et 180 000 €</p>
+                </div>
+                <div class="ad" onclick="openTankInfo('T-60')">
+                    <h3>T-60</h3>
+                    <img src="IMG/t60.jpg" alt="T-60">
+                    <p>prix : entre 80 000 € et 160 000 €</p>
+                </div>
+                <div class="ad" onclick="openTankInfo('SU-85')">
+                    <h3>SU-85</h3>
+                    <img src="IMG/su85.jpg" alt="SU-85">
+                    <p>prix : entre 150 000 € et 300 000 €</p>
+                </div>
+                <div class="ad" onclick="openTankInfo('IS-3')">
+                    <h3>IS-3</h3>
+                    <img src="IMG/is3.jpg" alt="IS-3">
+                    <p>prix : entre 800 000 € et 1 500 000 €</p>
+                </div>
+                <div class="ad" onclick="openTankInfo('T-44')">
+                    <h3>T-44</h3>
+                    <img src="IMG/t44.jpg" alt="T-44">
+                    <p>prix : entre 250 000 € et 500 000 €</p>
+                </div>
+                <div class="ad" onclick="openTankInfo('SU-122')">
+                    <h3>SU-122</h3>
+                    <img src="IMG/su122.jpg" alt="SU-122">
+                    <p>prix : entre 180 000 € et 350 000 €</p>
+                </div>
+            </div>
+        </section>
+        <section>
+            <h2 id="titre-allemand">Chars allemands</h2>
+            <div id="adsAllemand" class="ads-container">
+                <div class="ad" onclick="openTankInfo('Panzer IV')">
+                    <h3>Panzer IV</h3>
+                    <img src="IMG/pz4.jpg" alt="Panzer IV">
+                    <p>prix : entre 500 000 € et 1 000 000 €</p>
+                </div>
+                <div class="ad" onclick="openTankInfo('StuG III')">
+                    <h3>StuG III</h3>
+                    <img src="IMG/stug3.jpg" alt="StuG III">
+                    <p>prix : entre 200 000 € et 400 000 €</p>
+                </div>
+                <div class="ad" onclick="openTankInfo('Tiger I')">
+                    <h3>Tiger I</h3>
+                    <img src="IMG/tiger1.jpg" alt="Tiger I">
+                    <p>prix : entre 1 200 000 € et 2 000 000 €</p>
+                </div>
+                <div class="ad" onclick="openTankInfo('Tiger II')">
+                    <h3>Tiger II</h3>
+                    <img src="IMG/tiger2.jpg" alt="tiger II">
+                    <p>prix : entre 1 500 000 € et 2 500 000 €</p>
+                </div>
+                <div class="ad" onclick="openTankInfo('Jagdtiger')">
+                    <h3>Jagdtiger</h3>
+                    <img src="IMG/jagtiger.jpg" alt="Jagdtiger">
+                    <p>prix : entre 1 000 000 € et 1 800 000 €</p>
+                </div>
+                <div class="ad" onclick="openTankInfo('Panzer III')">
+                    <h3>Panzer III</h3>
+                    <img src="IMG/pz3.jpg" alt="Panzer III">
+                    <p>prix : entre 400 000 € et 800 000 €</p>
+                </div>
+                <div class="ad" onclick="openTankInfo('Panther')">
+                    <h3>Panther</h3>
+                    <img src="IMG/panther.jpg" alt="Panther">
+                    <p>prix : entre 800 000 € et 1 400 000 €</p>
+                </div>
+                <div class="ad" onclick="openTankInfo('Hetzer')">
+                    <h3>Hetzer</h3>
+                    <img src="IMG/hetzer.jpg" alt="Hetzer">
+                    <p>prix : entre 300 000 € et 600 000 €</p>
+                </div>
+                <div class="ad" onclick="openTankInfo('Elefant')">
+                    <h3>Elefant</h3>
+                    <img src="IMG/elefant.jpg" alt="Elefant">
+                    <p>prix : entre 900 000 € et 1 500 000 €</p>
+                </div>
+                <div class="ad" onclick="openTankInfo('Nashorn')">
+                    <h3>Nashorn</h3>
+                    <img src="IMG/nashorn.jpg" alt="Nashorn">
+                    <p>prix : entre 350 000 € et 700 000 €</p>
+                </div>
+                <div class="ad" onclick="openTankInfo('Brummbär')">
+                    <h3>Brummbär</h3>
+                    <img src="IMG/brummbar.jpg" alt="Brummbär">
+                    <p>prix : entre 400 000 € et 800 000 €</p>
+                </div>
+                <div class="ad" onclick="openTankInfo('Marder III')">
+                    <h3>Marder III</h3>
+                    <img src="IMG/marder3.jpg" alt="Marder III">
+                    <p>prix : entre 200 000 € et 400 000 €</p>
+                </div>
+                <div class="ad" onclick="openTankInfo('Panzer II')">
+                    <h3>Panzer II</h3>
+                    <img src="IMG/pz2.jpg" alt="Panzer II">
+                    <p>prix : entre 150 000 € et 300 000 €</p>
+                </div>
+                <div class="ad" onclick="openTankInfo('Panzer 38(t)')">
+                    <h3>Panzer 38(t)</h3>
+                    <img src="IMG/pz38t.jpg" alt="Panzer 38(t)">
+                    <p>prix : entre 180 000 € et 350 000 €</p>
+                </div>
+                <div class="ad" onclick="openTankInfo('Jagdpanther')">
+                    <h3>Jagdpanther</h3>
+                    <img src="IMG/jagdpanther.jpg" alt="Jagdpanther">
+                    <p>prix : entre 800 000 € et 1 400 000 €</p>
+                </div>
+            </div>
+        </section>
+        <section>
+            <h2 id="titre-americain">Chars américains</h2>
+            <div id="adsAmericain" class="ads-container">
+                <div class="ad" onclick="openTankInfo('M4 Sherman')">
+                    <h3>M4 Sherman</h3>
+                    <img src="IMG/m4.jpg" alt="M4 Sherman">
+                    <p>prix : entre 300 000 € et 600 000 €</p>
+                </div>
+                <div class="ad" onclick="openTankInfo('M26 Pershing')">
+                    <h3>M26 Pershing</h3>
+                    <img src="IMG/m26Pershing.jpg" alt="M26 Pershing">
+                    <p>prix : entre 700 000 € et 1 200 000 €</p>
+                </div>
+                <div class="ad" onclick="openTankInfo('M18 Hellcat')">
+                    <h3>M18 Hellcat</h3>
+                    <img src="IMG/m18Hellcat.jpg" alt="M18 Hellcat">
+                    <p>prix : entre 280 000 € et 500 000 €</p>
+                </div>
+                <div class="ad" onclick="openTankInfo('M10 Wolverine')">
+                    <h3>M10 Wolverine</h3>
+                    <img src="IMG/m10.jpg" alt="M10 Wolverine">
+                    <p>prix : entre 320 000 € et 600 000 €</p>
+                </div>
+                <div class="ad" onclick="openTankInfo('M36 Jackson')">
+                    <h3>M36 Jackson</h3>
+                    <img src="IMG/m36.jpg" alt="M36 Jackson">
+                    <p>prix : entre 400 000 € et 700 000 €</p>
+                </div>
+                <div class="ad" onclick="openTankInfo('M3 Lee')">
+                    <h3>M3 Lee</h3>
+                    <img src="IMG/m3lee.jpg" alt="M3 Lee">
+                    <p>prix : entre 250 000 € et 500 000 €</p>
+                </div>
+                <div class="ad" onclick="openTankInfo('M5 Stuart')">
+                    <h3>M5 Stuart</h3>
+                    <img src="IMG/m5stuart.jpg" alt="M5 Stuart">
+                    <p>prix : entre 180 000 € et 350 000 €</p>
+                </div>
+                <div class="ad" onclick="openTankInfo('M24 Chaffee')">
+                    <h3>M24 Chaffee</h3>
+                    <img src="IMG/m24chaffee.jpg" alt="M24 Chaffee">
+                    <p>prix : entre 220 000 € et 400 000 €</p>
+                </div>
+                <div class="ad" onclick="openTankInfo('M7 Priest')">
+                    <h3>M7 Priest</h3>
+                    <img src="IMG/m7.jpg" alt="M7 Priest">
+                    <p>prix : entre 200 000 € et 400 000 €</p>
+                </div>
+                <div class="ad" onclick="openTankInfo('M8 Greyhound')">
+                    <h3>M8 Greyhound</h3>
+                    <img src="IMG/m8.jpg" alt="M8 Greyhound">
+                    <p>prix : entre 120 000 € et 250 000 €</p>
+                </div>
+                <div class="ad" onclick="openTankInfo('M22 Locust')">
+                    <h3>M22 Locust</h3>
+                    <img src="IMG/m22.jpg" alt="M22 Locust">
+                    <p>prix : entre 100 000 € et 200 000 €</p>
+                </div>
+                <div class="ad" onclick="openTankInfo('T28 Super Heavy Tank')">
+                    <h3>T28 Super Heavy Tank</h3>
+                    <img src="IMG/t28.jpg" alt="T28 Super Heavy Tank">
+                    <p>prix : entre 1 500 000 € et 2 500 000 €</p>
+                </div>
+                <div class="ad" onclick="openTankInfo('M6 Heavy Tank')">
+                    <h3>M6 Heavy Tank</h3>
+                    <img src="IMG/m6.jpg" alt="M6 Heavy Tank">
+                    <p>prix : entre 700 000 € et 1 200 000 €</p>
+                </div>
+                <div class="ad" onclick="openTankInfo('M4A3E8 Sherman \'Easy Eight\'')">
+                    <h3>M4A3E8 Sherman 'Easy Eight'</h3>
+                    <img src="IMG/m4a3e8.jpg" alt="M4A3E8 Sherman Easy Eight">
+                    <p>prix : entre 350 000 € et 650 000 €</p>
+                </div>
+                <div class="ad" onclick="openTankInfo('M3 Stuart')">
+                    <h3>M3 Stuart</h3>
+                    <img src="IMG/m3stuart.jpg" alt="M3 Stuart">
+                    <p>prix : entre 150 000 € et 300 000 €</p>
+                </div>
+            </div>
+        </section>
+        <section>
+            <h2 id="titre-britannique">Chars britanniques</h2>
+            <div id="adsBritannique" class="ads-container">
+                <div class="ad" onclick="openTankInfo('Churchill')">
+                    <h3>Churchill</h3>
+                    <img src="IMG/churchill.jpg" alt="Churchill">
+                    <p>prix : entre 400 000 € et 800 000 €</p>
+                </div>
+                <div class="ad" onclick="openTankInfo('Cromwell')">
+                    <h3>Cromwell</h3>
+                    <img src="IMG/cromwell.jpg" alt="Cromwell">
+                    <p>prix : entre 300 000 € et 600 000 €</p>
+                </div>
+            </div>
+        </section>
+        <section>
+            <h2 id="titre-japonais">Chars japonais</h2>
+            <div id="adsJaponais" class="ads-container">
+                <div class="ad" onclick="openTankInfo('Type 97 Chi-Ha')">
+                    <h3>Type 97 Chi-Ha</h3>
+                    <img src="IMG/chiha.jpg" alt="Type 97 Chi-Ha">
+                    <p>prix : entre 120 000 € et 250 000 €</p>
+                </div>
+            </div>
+        </section>
+        <section>
+            <h2 id="titre-italien">Chars italiens</h2>
+            <div id="adsItalien" class="ads-container">
+                <div class="ad" onclick="openTankInfo('M13/40')">
+                    <h3>M13/40</h3>
+                    <img src="IMG/m1340.jpg" alt="M13/40">
+                    <p>prix : entre 100 000 € et 200 000 €</p>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <div class="container">
+            <p>2025 Tanks WWII - Projet étudiant</p>
+        </div>
+    </footer>
+    <script src="script.js"></script>
+</body>
+
+</html>

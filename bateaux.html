@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Bateaux WWII</title>
+    <link rel="stylesheet" href="CSS/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1 class="main-title">Bateaux WWII</h1>
+            <input type="text" id="searchBar" placeholder="Rechercher..." onkeyup="searchAds()">
+            
+            <!-- Nouveau menu mobile -->
+            <div class="mobile-menu">
+                <button id="menuToggle" aria-label="Ouvrir le menu">☰ Menu</button>
+                <div id="menuDropdown" class="menu-dropdown">
+                    <a href="index.html">Chars</a>
+                    <a href="avions.html">Avions</a>
+                    <a href="bateaux.html">Bateaux</a>
+                </div>
+            </div>
+            
+            <!-- Navigation desktop existante -->
+            <nav class="desktop-nav">
+                <a href="index.html">Chars</a> |
+                <a href="avions.html">Avions</a> |
+                <a href="bateaux.html">Bateaux</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Filtre pays juste avant le main -->
+    <div class="filter-bar">
+        <select id="countryFilter" onchange="filterByCountry()">
+            <option value="all">Tous les pays</option>
+            <option value="sovietique">Soviétiques</option>
+            <option value="allemand">Allemands</option>
+            <option value="americain">Américains</option>
+            <option value="britannique">Britanniques</option>
+            <option value="japonais">Japonais</option>
+            <option value="italien">Italiens</option>
+        </select>
+    </div>
+
+    <main>
+        <section>
+            <h2 id="titre-bateau-sovietique">Bateaux soviétiques</h2>
+            <div id="adsBateauSovietique" class="ads-container">
+                <div class="ad" onclick="openBoatInfo('Kirov')">
+                    <h3>Kirov</h3>
+                    <img src="IMG/kirov.jpg" alt="Kirov">
+                    <p>Croiseur soviétique - prix : entre 2 000 000 € et 4 000 000 €</p>
+                </div>
+                <div class="ad" onclick="openBoatInfo('Gnevny')">
+                    <h3>Gnevny</h3>
+                    <img src="IMG/gnevny.jpg" alt="Gnevny">
+                    <p>Destroyer soviétique - prix : entre 1 000 000 € et 2 000 000 €</p>
+                </div>
+            </div>
+        </section>
+        <section>
+            <h2 id="titre-bateau-allemand">Bateaux allemands</h2>
+            <div id="adsBateauAllemand" class="ads-container">
+                <div class="ad" onclick="openBoatInfo('Bismarck')">
+                    <h3>Bismarck</h3>
+                    <img src="IMG/bismarck.jpg" alt="Bismarck">
+                    <p>Cuirassé allemand - prix : entre 5 000 000 € et 10 000 000 €</p>
+                </div>
+                <div class="ad" onclick="openBoatInfo('U-Boat Type VII')">
+                    <h3>U-Boat Type VII</h3>
+                    <img src="IMG/uboat.jpg" alt="U-Boat Type VII">
+                    <p>Sous-marin allemand - prix : entre 1 500 000 € et 3 000 000 €</p>
+                </div>
+            </div>
+        </section>
+        <section>
+            <h2 id="titre-bateau-americain">Bateaux américains</h2>
+            <div id="adsBateauAmericain" class="ads-container">
+                <div class="ad" onclick="openBoatInfo('Iowa')">
+                    <h3>Iowa</h3>
+                    <img src="IMG/iowa.jpg" alt="Iowa">
+                    <p>Cuirassé américain - prix : entre 5 000 000 € et 10 000 000 €</p>
+                </div>
+                <div class="ad" onclick="openBoatInfo('Fletcher')">
+                    <h3>Fletcher</h3>
+                    <img src="IMG/fletcher.jpg" alt="Fletcher">
+                    <p>Destroyer américain - prix : entre 2 000 000 € et 4 000 000 €</p>
+                </div>
+            </div>
+        </section>
+        <section>
+            <h2 id="titre-bateau-britannique">Bateaux britanniques</h2>
+            <div id="adsBateauBritannique" class="ads-container">
+                <div class="ad" onclick="openBoatInfo('King George V')">
+                    <h3>King George V</h3>
+                    <img src="IMG/kgv.jpg" alt="King George V">
+                    <p>Cuirassé britannique - prix : entre 5 000 000 € et 10 000 000 €</p>
+                </div>
+                <div class="ad" onclick="openBoatInfo('Tribal')">
+                    <h3>Tribal</h3>
+                    <img src="IMG/tribal.jpg" alt="Tribal">
+                    <p>Destroyer britannique - prix : entre 2 000 000 € et 4 000 000 €</p>
+                </div>
+            </div>
+        </section>
+        <section>
+            <h2 id="titre-bateau-japonais">Bateaux japonais</h2>
+            <div id="adsBateauJaponais" class="ads-container">
+                <div class="ad" onclick="openBoatInfo('Yamato')">
+                    <h3>Yamato</h3>
+                    <img src="IMG/yamato.jpg" alt="Yamato">
+                    <p>Cuirassé japonais - prix : entre 8 000 000 € et 16 000 000 €</p>
+                </div>
+                <div class="ad" onclick="openBoatInfo('Fubuki')">
+                    <h3>Fubuki</h3>
+                    <img src="IMG/fubuki.jpg" alt="Fubuki">
+                    <p>Destroyer japonais - prix : entre 1 500 000 € et 3 000 000 €</p>
+                </div>
+            </div>
+        </section>
+        <section>
+            <h2 id="titre-bateau-italien">Bateaux italiens</h2>
+            <div id="adsBateauItalien" class="ads-container">
+                <div class="ad" onclick="openBoatInfo('Littorio')">
+                    <h3>Littorio</h3>
+                    <img src="IMG/littorio.jpg" alt="Littorio">
+                    <p>Cuirassé italien - prix : entre 4 000 000 € et 8 000 000 €</p>
+                </div>
+                <div class="ad" onclick="openBoatInfo('Soldati')">
+                    <h3>Soldati</h3>
+                    <img src="IMG/soldati.jpg" alt="Soldati">
+                    <p>Destroyer italien - prix : entre 1 000 000 € et 2 000 000 €</p>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <div class="container">
+            <p>2025 Bateaux WWII - Projet étudiant</p>
+        </div>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>

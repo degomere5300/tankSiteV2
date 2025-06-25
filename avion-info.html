@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Fiche technique avion</title>
+    <link rel="stylesheet" href="CSS/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1 class="main-title">Avions WWII</h1>
+            <nav>
+                <a href="index.html">Chars</a> |
+                <a href="avions.html" class="active">Avions</a>
+            </nav>
+        </div>
+    </header>
+    <div id="tank-details-container">
+        <h2 id="planeName"></h2>
+        <div id="tankDetails"></div>
+        <div class="center">
+            <a href="avions.html" class="back-btn">← Retour à la liste</a>
+        </div>
+    </div>
+    <footer>
+        <div class="container">
+            <p>2025 Avions WWII - Projet étudiant</p>
+        </div>
+    </footer>
+    <script>
+        // Récupère le nom de l'avion dans l'URL
+        const params = new URLSearchParams(window.location.search);
+        const avion = params.get('avion');
+        document.getElementById('planeName').textContent = avion;
+
+        // Fiches techniques des avions
+        const details = {
+            "Yak-3": {
+                "Pays": "URSS",
+                "Type": "Chasseur",
+                "Année": "1944",
+                "Armement": "1 canon de 20 mm, 2 mitrailleuses de 12,7 mm",
+                "Vitesse max": "655 km/h",
+                "Envergure": "9,2 m",
+                "Longueur": "8,5 m",
+                "Production": "~4 848",
+                "Description": "Le Yakovlev Yak-3 est l'un des meilleurs chasseurs soviétiques de la Seconde Guerre mondiale, apprécié pour sa maniabilité."
+            },
+            "Il-2 Sturmovik": {
+                "Pays": "URSS",
+                "Type": "Assaut",
+                "Année": "1941",
+                "Armement": "2 canons de 23 mm, 2 mitrailleuses de 7,62 mm, bombes/roquettes",
+                "Vitesse max": "414 km/h",
+                "Envergure": "14,6 m",
+                "Longueur": "11,6 m",
+                "Production": "~36 183",
+                "Description": "L'Ilyushin Il-2 Sturmovik est un avion d'attaque au sol soviétique, surnommé 'le char volant'."
+            },
+            "Pe-2": {
+                "Pays": "URSS",
+                "Type": "Bombardier",
+                "Année": "1941",
+                "Armement": "3 mitrailleuses de 7,62 mm, bombes",
+                "Vitesse max": "540 km/h",
+                "Envergure": "17,1 m",
+                "Longueur": "12,7 m",
+                "Production": "~11 427",
+                "Description": "Le Petlyakov Pe-2 est un bombardier rapide soviétique très utilisé pendant la guerre."
+            },
+            "Il-4": {
+                "Pays": "URSS",
+                "Type": "Bombardier-torpilleur",
+                "Année": "1936",
+                "Armement": "3 mitrailleuses de 7,62 mm, bombes ou torpilles",
+                "Vitesse max": "430 km/h",
+                "Envergure": "21,44 m",
+                "Longueur": "14,76 m",
+                "Production": "~5 256",
+                "Description": "L'Ilyushin Il-4 est un bombardier-torpilleur soviétique employé pour des missions de longue distance."
+            },
+            "Bf 109": {
+                "Pays": "Allemagne",
+                "Type": "Chasseur",
+                "Année": "1937",
+                "Armement": "1 canon de 20 mm, 2 mitrailleuses de 7,92 mm",
+                "Vitesse max": "640 km/h",
+                "Envergure": "9,9 m",
+                "Longueur": "8,9 m",
+                "Production": "~33 984",
+                "Description": "Le Messerschmitt Bf 109 est le principal chasseur allemand de la guerre, produit à grande échelle."
+            },
+            "Fw 190": {
+                "Pays": "Allemagne",
+                "Type": "Chasseur",
+                "Année": "1941",
+                "Armement": "2 canons de 20 mm, 2 mitrailleuses de 7,92 mm",
+                "Vitesse max": "656 km/h",
+                "Envergure": "10,5 m",
+                "Longueur": "9,1 m",
+                "Production": "~20 000",
+                "Description": "Le Focke-Wulf Fw 190 est un chasseur allemand très performant, utilisé sur tous les fronts."
+            },
+            "He 111": {
+                "Pays": "Allemagne",
+                "Type": "Bombardier moyen",
+                "Année": "1936",
+                "Armement": "7 mitrailleuses de 7,92 mm, bombes",
+                "Vitesse max": "440 km/h",
+                "Envergure": "22,6 m",
+                "Longueur": "16,4 m",
+                "Production": "~6 508",
+                "Description": "Le Heinkel He 111 est le principal bombardier moyen allemand de la Seconde Guerre mondiale."
+            },
+            "Ju 88": {
+                "Pays": "Allemagne",
+                "Type": "Bombardier/torpilleur polyvalent",
+                "Année": "1939",
+                "Armement": "5 mitrailleuses de 7,92 mm, bombes ou torpilles",
+                "Vitesse max": "470 km/h",
+                "Envergure": "20,1 m",
+                "Longueur": "14,4 m",
+                "Production": "~15 000",
+                "Description": "Le Junkers Ju 88 est un bombardier polyvalent allemand, aussi utilisé comme torpilleur."
+            },
+            "P-51 Mustang": {
+                "Pays": "États-Unis",
+                "Type": "Chasseur",
+                "Année": "1942",
+                "Armement": "6 mitrailleuses de 12,7 mm",
+                "Vitesse max": "703 km/h",
+                "Envergure": "11,3 m",
+                "Longueur": "9,8 m",
+                "Production": "~15 875",
+                "Description": "Le North American P-51 Mustang est un chasseur d'escorte américain célèbre pour sa portée et ses performances."
+            },
+            "B-17 Flying Fortress": {
+                "Pays": "États-Unis",
+                "Type": "Bombardier lourd",
+                "Année": "1938",
+                "Armement": "13 mitrailleuses de 12,7 mm, bombes",
+                "Vitesse max": "462 km/h",
+                "Envergure": "31,6 m",
+                "Longueur": "22,7 m",
+                "Production": "~12 731",
+                "Description": "Le Boeing B-17 Flying Fortress est un bombardier lourd américain, célèbre pour sa robustesse."
+            },
+            "B-25 Mitchell": {
+                "Pays": "États-Unis",
+                "Type": "Bombardier moyen",
+                "Année": "1941",
+                "Armement": "12 mitrailleuses de 12,7 mm, bombes",
+                "Vitesse max": "442 km/h",
+                "Envergure": "20,6 m",
+                "Longueur": "16,1 m",
+                "Production": "~9 816",
+                "Description": "Le North American B-25 Mitchell est un célèbre bombardier moyen américain."
+            },
+            "TBF Avenger": {
+                "Pays": "États-Unis",
+                "Type": "Torpilleur embarqué",
+                "Année": "1942",
+                "Armement": "1 canon de 20 mm, 2 mitrailleuses de 7,62 mm, torpilles/bombes",
+                "Vitesse max": "439 km/h",
+                "Envergure": "16,5 m",
+                "Longueur": "12,5 m",
+                "Production": "~9 839",
+                "Description": "Le Grumman TBF Avenger est un torpilleur embarqué américain, très utilisé dans le Pacifique."
+            },
+            "Spitfire": {
+                "Pays": "Royaume-Uni",
+                "Type": "Chasseur",
+                "Année": "1938",
+                "Armement": "8 mitrailleuses de 7,7 mm ou 2 canons de 20 mm",
+                "Vitesse max": "594 km/h",
+                "Envergure": "11,2 m",
+                "Longueur": "9,1 m",
+                "Production": "~20 351",
+                "Description": "Le Supermarine Spitfire est le chasseur emblématique britannique de la Bataille d'Angleterre."
+            },
+            "Lancaster": {
+                "Pays": "Royaume-Uni",
+                "Type": "Bombardier lourd",
+                "Année": "1942",
+                "Armement": "8 mitrailleuses de 7,7 mm, bombes",
+                "Vitesse max": "462 km/h",
+                "Envergure": "31,1 m",
+                "Longueur": "21,1 m",
+                "Production": "~7 377",
+                "Description": "L'Avro Lancaster est le principal bombardier lourd britannique de la guerre."
+            },
+            "A6M Zero": {
+                "Pays": "Japon",
+                "Type": "Chasseur",
+                "Année": "1940",
+                "Armement": "2 canons de 20 mm, 2 mitrailleuses de 7,7 mm",
+                "Vitesse max": "533 km/h",
+                "Envergure": "12 m",
+                "Longueur": "9,1 m",
+                "Production": "~10 939",
+                "Description": "Le Mitsubishi A6M Zero est le chasseur embarqué japonais le plus célèbre du Pacifique."
+            },
+            "G4M Betty": {
+                "Pays": "Japon",
+                "Type": "Bombardier moyen",
+                "Année": "1941",
+                "Armement": "4 mitrailleuses de 7,7 mm, bombes ou torpilles",
+                "Vitesse max": "437 km/h",
+                "Envergure": "25 m",
+                "Longueur": "19,97 m",
+                "Production": "~2 479",
+                "Description": "Le Mitsubishi G4M 'Betty' est le principal bombardier japonais à long rayon d'action."
+            },
+            "Macchi C.202": {
+                "Pays": "Italie",
+                "Type": "Chasseur",
+                "Année": "1941",
+                "Armement": "2 mitrailleuses de 12,7 mm, 2 de 7,7 mm",
+                "Vitesse max": "600 km/h",
+                "Envergure": "11 m",
+                "Longueur": "8,85 m",
+                "Production": "~1 150",
+                "Description": "Le Macchi C.202 Folgore est le meilleur chasseur italien de la guerre."
+            },
+            "SM.79 Sparviero": {
+                "Pays": "Italie",
+                "Type": "Bombardier/torpilleur",
+                "Année": "1936",
+                "Armement": "4 mitrailleuses de 12,7 mm, bombes ou torpilles",
+                "Vitesse max": "430 km/h",
+                "Envergure": "21,2 m",
+                "Longueur": "16,2 m",
+                "Production": "~1 350",
+                "Description": "Le Savoia-Marchetti SM.79 Sparviero est le bombardier-torpilleur italien le plus célèbre."
+            }
+        };
+
+        // Affichage de la fiche
+        const planeData = details[avion];
+        const planeDetailsDiv = document.getElementById('tankDetails');
+        if (planeData) {
+            let html = "<ul>";
+            for (const [key, value] of Object.entries(planeData)) {
+                if (key !== "Description") {
+                    html += `<li><strong>${key} :</strong> ${value}</li>`;
+                }
+            }
+            html += "</ul>";
+            if (planeData.Description) {
+                html += `<p class="desc">${planeData.Description}</p>`;
+            }
+            planeDetailsDiv.innerHTML = html;
+        } else {
+            planeDetailsDiv.textContent = "Aucune information disponible pour cet avion.";
+        }
+    </script>
+</body>
+</html>

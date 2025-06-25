@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Fiche technique bateau</title>
+    <link rel="stylesheet" href="CSS/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1 class="main-title">Bateaux WWII</h1>
+            <nav>
+                <a href="index.html">Chars</a> |
+                <a href="avions.html">Avions</a> |
+                <a href="bateaux.html">Bateaux</a>
+            </nav>
+        </div>
+    </header>
+    <div id="tank-details-container">
+        <h2 id="boatName"></h2>
+        <div id="tankDetails"></div>
+        <div class="center">
+            <a href="bateaux.html" class="back-btn">← Retour à la liste</a>
+        </div>
+    </div>
+    <footer>
+        <div class="container"></div>
+    </footer>
+    <script>
+        // Récupère le nom du bateau dans l'URL
+        const params = new URLSearchParams(window.location.search);
+        const bateau = params.get('bateau');
+        document.getElementById('boatName').textContent = bateau;
+
+        // Fiches techniques des bateaux
+        const details = {
+            "Kirov": {
+                "Pays": "URSS",
+                "Type": "Croiseur",
+                "Année": "1938",
+                "Déplacement": "7 890 t",
+                "Longueur": "191 m",
+                "Armement": "9 canons de 180 mm, 6 canons de 100 mm, torpilles",
+                "Vitesse max": "36 nœuds",
+                "Description": "Le Kirov est le premier croiseur lourd soviétique moderne, actif pendant la Seconde Guerre mondiale."
+            },
+            "Gnevny": {
+                "Pays": "URSS",
+                "Type": "Destroyer",
+                "Année": "1936",
+                "Déplacement": "1 612 t",
+                "Longueur": "112,8 m",
+                "Armement": "4 canons de 130 mm, torpilles",
+                "Vitesse max": "37 nœuds",
+                "Description": "Le Gnevny est un destroyer soviétique de la classe la plus nombreuse de la flotte de la Baltique."
+            },
+            "Bismarck": {
+                "Pays": "Allemagne",
+                "Type": "Cuirassé",
+                "Année": "1940",
+                "Déplacement": "50 300 t",
+                "Longueur": "251 m",
+                "Armement": "8 canons de 380 mm, 12 canons de 150 mm, DCA",
+                "Vitesse max": "30 nœuds",
+                "Description": "Le Bismarck est le plus célèbre cuirassé allemand, coulé en 1941 après une grande chasse navale."
+            },
+            "U-Boat Type VII": {
+                "Pays": "Allemagne",
+                "Type": "Sous-marin",
+                "Année": "1936",
+                "Déplacement": "769 t (surface)",
+                "Longueur": "67,1 m",
+                "Armement": "5 tubes lance-torpilles, 1 canon de 88 mm",
+                "Vitesse max": "17 nœuds (surface)",
+                "Description": "Le Type VII est le sous-marin allemand le plus produit de la guerre, redouté dans la bataille de l’Atlantique."
+            },
+            "Iowa": {
+                "Pays": "États-Unis",
+                "Type": "Cuirassé",
+                "Année": "1943",
+                "Déplacement": "57 540 t",
+                "Longueur": "270,4 m",
+                "Armement": "9 canons de 406 mm, 20 canons de 127 mm, DCA",
+                "Vitesse max": "33 nœuds",
+                "Description": "L’USS Iowa est le chef de file des cuirassés rapides américains, célèbre pour sa puissance de feu et sa vitesse."
+            },
+            "Fletcher": {
+                "Pays": "États-Unis",
+                "Type": "Destroyer",
+                "Année": "1942",
+                "Déplacement": "2 924 t",
+                "Longueur": "114,7 m",
+                "Armement": "5 canons de 127 mm, torpilles, DCA",
+                "Vitesse max": "36,5 nœuds",
+                "Description": "Le Fletcher est le destroyer américain le plus construit de la guerre, polyvalent et très efficace."
+            },
+            "King George V": {
+                "Pays": "Royaume-Uni",
+                "Type": "Cuirassé",
+                "Année": "1940",
+                "Déplacement": "42 200 t",
+                "Longueur": "227 m",
+                "Armement": "10 canons de 356 mm, 16 canons de 133 mm, DCA",
+                "Vitesse max": "28 nœuds",
+                "Description": "Le King George V est le principal cuirassé britannique de la Seconde Guerre mondiale."
+            },
+            "Tribal": {
+                "Pays": "Royaume-Uni",
+                "Type": "Destroyer",
+                "Année": "1938",
+                "Déplacement": "1 891 t",
+                "Longueur": "115 m",
+                "Armement": "8 canons de 120 mm, torpilles",
+                "Vitesse max": "36 nœuds",
+                "Description": "Le Tribal est une classe de destroyers britanniques puissants et polyvalents."
+            },
+            "Yamato": {
+                "Pays": "Japon",
+                "Type": "Cuirassé",
+                "Année": "1941",
+                "Déplacement": "72 800 t",
+                "Longueur": "263 m",
+                "Armement": "9 canons de 460 mm, 12 canons de 155 mm, DCA",
+                "Vitesse max": "27 nœuds",
+                "Description": "Le Yamato est le plus grand cuirassé jamais construit, symbole de la marine japonaise."
+            },
+            "Fubuki": {
+                "Pays": "Japon",
+                "Type": "Destroyer",
+                "Année": "1928",
+                "Déplacement": "1 750 t",
+                "Longueur": "118,4 m",
+                "Armement": "6 canons de 127 mm, torpilles",
+                "Vitesse max": "38 nœuds",
+                "Description": "Le Fubuki est un destroyer japonais révolutionnaire pour son époque."
+            },
+            "Littorio": {
+                "Pays": "Italie",
+                "Type": "Cuirassé",
+                "Année": "1940",
+                "Déplacement": "45 236 t",
+                "Longueur": "237,8 m",
+                "Armement": "9 canons de 381 mm, 12 canons de 152 mm, DCA",
+                "Vitesse max": "30 nœuds",
+                "Description": "Le Littorio est le cuirassé le plus moderne de la marine italienne."
+            },
+            "Soldati": {
+                "Pays": "Italie",
+                "Type": "Destroyer",
+                "Année": "1938",
+                "Déplacement": "1 830 t",
+                "Longueur": "106,7 m",
+                "Armement": "5 canons de 120 mm, torpilles",
+                "Vitesse max": "38 nœuds",
+                "Description": "Le Soldati est une classe de destroyers italiens rapides et bien armés."
+            }
+        };
+
+        // Affichage de la fiche
+        const boatData = details[bateau];
+        const boatDetailsDiv = document.getElementById('tankDetails');
+        if (boatData) {
+            let html = '<ul>';
+            for (const [key, value] of Object.entries(boatData)) {
+                html += `<li><strong>${key} :</strong> ${value}</li>`;
+            }
+            html += '</ul>';
+            boatDetailsDiv.innerHTML = html;
+        } else {
+            boatDetailsDiv.innerHTML = "<p>Bateau inconnu.</p>";
+        }
+    </script>
+</body>
+</html>

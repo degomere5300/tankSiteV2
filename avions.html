@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recherche d'Annonces - Avions WWII</title>
+    <link rel="stylesheet" href="CSS/style.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1 class="main-title">Avions WWII</h1>
+            <input type="text" id="searchBar" placeholder="Rechercher..." onkeyup="searchAds()">
+            <!-- Nouveau menu mobile -->
+            <div class="mobile-menu">
+                <button id="menuToggle" aria-label="Ouvrir le menu">☰ Menu</button>
+                <div id="menuDropdown" class="menu-dropdown">
+                    <a href="index.html">Chars</a>
+                    <a href="avions.html">Avions</a>
+                    <a href="bateaux.html">Bateaux</a>
+                </div>
+            </div>
+            <!-- Navigation desktop existante -->
+            <nav class="desktop-nav">
+                <a href="index.html">Chars</a> |
+                <a href="avions.html">Avions</a> |
+                <a href="bateaux.html">Bateaux</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Filtre pays juste avant le main -->
+    <div class="filter-bar">
+        <select id="countryFilter" onchange="filterByCountry()">
+            <option value="all">Tous les pays</option>
+            <option value="sovietique">Soviétiques</option>
+            <option value="allemand">Allemands</option>
+            <option value="americain">Américains</option>
+            <option value="britannique">Britanniques</option>
+            <option value="japonais">Japonais</option>
+            <option value="italien">Italiens</option>
+        </select>
+    </div>
+
+    <main>
+        <section>
+            <h2 id="titre-avion-sovietique">Avions soviétiques</h2>
+            <div id="adsAvionSovietique" class="ads-container">
+                <div class="ad" onclick="openPlaneInfo('Yak-3')">
+                    <h3>Yak-3</h3>
+                    <img src="IMG/yak3.jpg" alt="Yak-3">
+                    <p>prix : entre 200 000 € et 400 000 €</p>
+                </div>
+                <div class="ad" onclick="openPlaneInfo('Il-2 Sturmovik')">
+                    <h3>Il-2 Sturmovik</h3>
+                    <img src="IMG/il2.jpg" alt="Il-2 Sturmovik">
+                    <p>prix : entre 300 000 € et 600 000 €</p>
+                </div>
+                <div class="ad" onclick="openPlaneInfo('Pe-2')">
+                    <h3>Pe-2</h3>
+                    <img src="IMG/pe2.jpg" alt="Pe-2">
+                    <p>Bombardier soviétique - prix : entre 400 000 € et 800 000 €</p>
+                </div>
+                <div class="ad" onclick="openPlaneInfo('Il-4')">
+                    <h3>Il-4</h3>
+                    <img src="IMG/il4.jpg" alt="Il-4">
+                    <p>Bombardier torpilleur soviétique - prix : entre 350 000 € et 700 000 €</p>
+                </div>
+                <!-- Ajoute d'autres avions soviétiques ici -->
+            </div>
+        </section>
+        <section>
+            <h2 id="titre-avion-allemand">Avions allemands</h2>
+            <div id="adsAvionAllemand" class="ads-container">
+                <div class="ad" onclick="openPlaneInfo('Bf 109')">
+                    <h3>Bf 109</h3>
+                    <img src="IMG/bf109.jpg" alt="Bf 109">
+                    <p>prix : entre 250 000 € et 500 000 €</p>
+                </div>
+                <div class="ad" onclick="openPlaneInfo('Fw 190')">
+                    <h3>Fw 190</h3>
+                    <img src="IMG/fw190.jpg" alt="Fw 190">
+                    <p>prix : entre 300 000 € et 600 000 €</p>
+                </div>
+                <div class="ad" onclick="openPlaneInfo('He 111')">
+                    <h3>He 111</h3>
+                    <img src="IMG/he111.jpg" alt="He 111">
+                    <p>Bombardier allemand - prix : entre 600 000 € et 1 200 000 €</p>
+                </div>
+                <div class="ad" onclick="openPlaneInfo('Ju 88')">
+                    <h3>Ju 88</h3>
+                    <img src="IMG/ju88.jpg" alt="Ju 88">
+                    <p>Bombardier/torpilleur allemand - prix : entre 700 000 € et 1 400 000 €</p>
+                </div>
+                <!-- Ajoute d'autres avions allemands ici -->
+            </div>
+        </section>
+        <section>
+            <h2 id="titre-avion-americain">Avions américains</h2>
+            <div id="adsAvionAmericain" class="ads-container">
+                <div class="ad" onclick="openPlaneInfo('P-51 Mustang')">
+                    <h3>P-51 Mustang</h3>
+                    <img src="IMG/p51.jpg" alt="P-51 Mustang">
+                    <p>prix : entre 400 000 € et 800 000 €</p>
+                </div>
+                <div class="ad" onclick="openPlaneInfo('B-17 Flying Fortress')">
+                    <h3>B-17 Flying Fortress</h3>
+                    <img src="IMG/b17.jpg" alt="B-17 Flying Fortress">
+                    <p>prix : entre 1 000 000 € et 2 000 000 €</p>
+                </div>
+                <div class="ad" onclick="openPlaneInfo('B-25 Mitchell')">
+                    <h3>B-25 Mitchell</h3>
+                    <img src="IMG/b25.jpg" alt="B-25 Mitchell">
+                    <p>Bombardier américain - prix : entre 900 000 € et 1 800 000 €</p>
+                </div>
+                <div class="ad" onclick="openPlaneInfo('TBF Avenger')">
+                    <h3>TBF Avenger</h3>
+                    <img src="IMG/tbf.jpg" alt="TBF Avenger">
+                    <p>Torpilleur américain - prix : entre 800 000 € et 1 600 000 €</p>
+                </div>
+                <!-- Ajoute d'autres avions américains ici -->
+            </div>
+        </section>
+        <section>
+            <h2 id="titre-avion-britannique">Avions britanniques</h2>
+            <div id="adsAvionBritannique" class="ads-container">
+                <div class="ad" onclick="openPlaneInfo('Spitfire')">
+                    <h3>Spitfire</h3>
+                    <img src="IMG/spitfire.jpg" alt="Spitfire">
+                    <p>prix : entre 700 000 € et 1 400 000 €</p>
+                </div>
+                <div class="ad" onclick="openPlaneInfo('Lancaster')">
+                    <h3>Lancaster</h3>
+                    <img src="IMG/lancaster.jpg" alt="Lancaster">
+                    <p>Bombardier britannique - prix : entre 1 500 000 € et 3 000 000 €</p>
+                </div>
+            </div>
+        </section>
+        <section>
+            <h2 id="titre-avion-japonais">Avions japonais</h2>
+            <div id="adsAvionJaponais" class="ads-container">
+                <div class="ad" onclick="openPlaneInfo('A6M Zero')">
+                    <h3>A6M Zero</h3>
+                    <img src="IMG/zero.jpg" alt="A6M Zero">
+                    <p>prix : entre 400 000 € et 800 000 €</p>
+                </div>
+                <div class="ad" onclick="openPlaneInfo('G4M Betty')">
+                    <h3>G4M Betty</h3>
+                    <img src="IMG/g4m.jpg" alt="G4M Betty">
+                    <p>Bombardier japonais - prix : entre 800 000 € et 1 600 000 €</p>
+                </div>
+            </div>
+        </section>
+        <section>
+            <h2 id="titre-avion-italien">Avions italiens</h2>
+            <div id="adsAvionItalien" class="ads-container">
+                <div class="ad" onclick="openPlaneInfo('Macchi C.202')">
+                    <h3>Macchi C.202</h3>
+                    <img src="IMG/c202.jpg" alt="Macchi C.202">
+                    <p>prix : entre 300 000 € et 600 000 €</p>
+                </div>
+                <div class="ad" onclick="openPlaneInfo('SM.79 Sparviero')">
+                    <h3>SM.79 Sparviero</h3>
+                    <img src="IMG/sm79.jpg" alt="SM.79 Sparviero">
+                    <p>Bombardier/torpilleur italien - prix : entre 600 000 € et 1 200 000 €</p>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <div class="container">
+            <p>2025 Avions WWII - Projet étudiant</p>
+        </div>
+    </footer>
+    <script src="script.js"></script>
+    <script>
+        function openPlaneInfo(planeName) {
+            window.location.href = `avion-info.html?avion=${encodeURIComponent(planeName)}`;
+        }
+    </script>
+</body>
+</html>
