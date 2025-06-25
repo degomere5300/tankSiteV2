@@ -88,3 +88,19 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
+document.addEventListener('DOMContentLoaded', () => {
+    const menuToggle = document.getElementById('menuToggle');
+    const menuDropdown = document.getElementById('menuDropdown');
+    if (menuToggle && menuDropdown) {
+        menuToggle.addEventListener('click', (e) => {
+            e.stopPropagation();
+            menuDropdown.classList.toggle('open');
+        });
+        document.addEventListener('click', (e) => {
+            if (!menuDropdown.contains(e.target) && e.target !== menuToggle) {
+                menuDropdown.classList.remove('open');
+            }
+        });
+    }
+});
+

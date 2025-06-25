@@ -214,20 +214,23 @@ nav a:hover, nav a.active {
 /* Menu mobile */
 .mobile-menu {
     display: none;
+    width: 100%;
+    position: relative;
 }
 .menu-dropdown {
     display: none;
     flex-direction: column;
     position: absolute;
-    top: 60px;
-    left: 50%;
-    transform: translateX(-50%);
+    top: 100%;
+    left: 0;
+    right: 0;
     background: #23272f;
     border: 2px solid #f5c518;
     border-radius: 8px;
     box-shadow: 0 4px 16px rgba(0,0,0,0.18);
     z-index: 1000;
-    min-width: 180px;
+    min-width: 120px;
+    width: 100vw;
     padding: 0.5em 0;
 }
 .menu-dropdown a {
@@ -238,6 +241,8 @@ nav a:hover, nav a.active {
     text-align: center;
     border-bottom: 1px solid #444;
     display: block;
+    width: 100%;
+    box-sizing: border-box;
 }
 .menu-dropdown a:last-child {
     border-bottom: none;
@@ -272,6 +277,13 @@ nav a:hover, nav a.active {
         align-items: center;
         width: 100%;
         position: relative;
+    }
+    .menu-dropdown {
+        left: 0;
+        right: 0;
+        min-width: unset;
+        width: 100vw;
+        border-radius: 0 0 8px 8px;
     }
     .container {
         max-width: 100%;
