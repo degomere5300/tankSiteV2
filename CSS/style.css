@@ -5,6 +5,10 @@ body {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    margin: 0;
+    background: #23272f;
+    color: #f5f5f5;
 }
 main {
     flex: 1 0 auto;
@@ -12,47 +16,33 @@ main {
 footer {
     flex-shrink: 0;
     margin-top: auto;
+    background: #1a1d23;
+    color: #aaa;
+    text-align: center;
+    padding: 18px 0 10px 0;
+    font-size: 1em;
 }
-
-body {
-    font-family: 'Segoe UI', Arial, sans-serif;
-    margin: 0;
-    background: #23272f;
-    color: #f5f5f5;
-}
-
 header {
     background: #1a1d23;
     padding: 24px 0 16px 0;
     box-shadow: 0 2px 8px rgba(0,0,0,0.08);
 }
-
-header .container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-}
-
 .container {
     max-width: 1100px;
     margin: 0 auto;
     padding: 0 16px;
 }
-
 .main-title {
-    margin: 1em 0 0.5em 0;
-    color: #f5c518; /* Jaune vif */
-    font-size: 2.2em;
     text-align: center;
-    letter-spacing: 1px;
+    font-size: 2.5em;
+    margin-bottom: 10px;
+    letter-spacing: 2px;
+    color: #f5c518;
 }
-
 #searchBar {
-    width: 350px;
-    max-width: 90vw;
-    margin: 0 auto 1em auto;
     display: block;
+    margin: 0 auto 20px auto;
+    width: 320px;
     padding: 12px;
     border-radius: 6px;
     border: none;
@@ -61,7 +51,36 @@ header .container {
     color: #f5f5f5;
     box-shadow: 0 1px 4px rgba(0,0,0,0.08);
 }
-
+.filter-bar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 1.2em 0 1.2em 0;
+    width: 100%;
+}
+.filter-bar select {
+    min-width: 220px;
+    max-width: 350px;
+    width: 100%;
+    padding: 0.5em 1em;
+    border: 1.5px solid #f7c948;
+    border-radius: 4px;
+    font-size: 1em;
+    background: #23272f !important;
+    color: #fff !important;
+    transition: border 0.2s, box-shadow 0.2s;
+    box-shadow: 0 1px 3px rgba(247,201,72,0.08);
+}
+.filter-bar select:focus {
+    border: 2px solid #f7c948;
+    outline: none;
+    background: #23272f !important;
+    color: #fff !important;
+}
+.filter-bar select option {
+    background: #23272f;
+    color: #fff;
+}
 .ads-container {
     display: flex;
     flex-wrap: wrap;
@@ -69,7 +88,6 @@ header .container {
     justify-content: center;
     margin-bottom: 32px;
 }
-
 .ad {
     background: #393e46;
     border-radius: 10px;
@@ -99,7 +117,6 @@ header .container {
     margin: 0;
     font-size: 1.08em;
 }
-
 section {
     margin-bottom: 40px;
 }
@@ -111,7 +128,6 @@ h2 {
     font-size: 2em;
     letter-spacing: 1px;
 }
-
 #tank-details-container {
     background: #393e46;
     border-radius: 12px;
@@ -120,14 +136,12 @@ h2 {
     padding: 32px 32px 24px 32px;
     box-shadow: 0 4px 24px rgba(0,0,0,0.2);
 }
-
 #tank-details-container h2 {
     text-align: center;
     font-size: 2.2em;
     margin-bottom: 10px;
     letter-spacing: 1px;
 }
-
 #tankDetails ul {
     list-style: none;
     padding: 0;
@@ -167,19 +181,11 @@ h2 {
     box-shadow: 0 2px 8px rgba(0,0,0,0.08);
     border: 2px solid #bfa100;
     transition: background 0.2s, color 0.2s;
-    text-shadow: none; /* retire tout effet de flou */
+    text-shadow: none;
 }
 .back-btn:hover {
     background: #ffe082;
     color: #23272f;
-}
-footer {
-    background: #1a1d23;
-    color: #aaa;
-    text-align: center;
-    padding: 18px 0 10px 0;
-    margin-top: 40px;
-    font-size: 1em;
 }
 nav {
     display: flex;
@@ -188,7 +194,6 @@ nav {
     margin-top: 12px;
     margin-bottom: 8px;
 }
-
 nav a {
     color: #f5c518;
     background: #23272f;
@@ -201,187 +206,12 @@ nav a {
     box-shadow: 0 1px 6px rgba(0,0,0,0.10);
     letter-spacing: 1px;
 }
-
 nav a:hover, nav a.active {
     background: #f5c518;
     color: #23272f;
     box-shadow: 0 2px 12px rgba(0,0,0,0.15);
 }
-
-.filter-bar {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 1.2em 0 1.2em 0;
-    width: 100%;
-}
-
-.filter-bar input[type="text"], .filter-bar select {
-    min-width: 220px;
-    max-width: 350px;
-    width: 100%;
-    padding: 0.5em 1em;
-    border: 1.5px solid #f7c948;
-    border-radius: 4px;
-    font-size: 1em;
-    background: #23272f;   /* Fond noir */
-    color: #fff;           /* Texte blanc */
-    transition: border 0.2s, box-shadow 0.2s;
-    box-shadow: 0 1px 3px rgba(247,201,72,0.08);
-}
-
-.filter-bar input[type="text"]:focus, .filter-bar select:focus {
-    border: 2px solid #f7c948;
-    outline: none;
-    background: #fffde7;
-}
-
-/* Garde le fond noir sur le select même ouvert */
-.filter-bar select,
-.filter-bar select:focus,
-.filter-bar select:active {
-    background: #23272f !important;
-    color: #fff !important;
-    border: 1.5px solid #f7c948;
-}
-
-/* Pour les options du select (Chrome/Edge) */
-.filter-bar select option {
-    background: #23272f;
-    color: #fff;
-}
-
-/* Pour Firefox */
-@-moz-document url-prefix() {
-    .filter-bar select {
-        background-color: #23272f !important;
-        color: #fff !important;
-    }
-    .filter-bar select option {
-        background-color: #23272f !important;
-        color: #fff !important;
-    }
-}
-
-@media (max-width: 900px) {
-    .ads-container { flex-direction: column; align-items: center; }
-    #tank-details-container { padding: 12px; }
-    iframe { width: 100% !important; height: 220px !important; }
-}
-
-/* Responsive pour mobile */
-@media (max-width: 700px) {
-    #tank-details-container,
-    #tankDetails,
-    #tankDetails ul,
-    #tankDetails ul li,
-    #tankDetails .desc {
-        font-size: 1.13em !important;
-        line-height: 1.5;
-    }
-    #tank-details-container h2,
-    #planeName,
-    #boatName {
-        font-size: 1.4em !important;
-    }
-    .container {
-        max-width: 100vw;
-        padding: 0 4vw;
-    }
-    .main-title {
-        font-size: 1.15em;
-        margin: 0.7em 0 0.4em 0;
-        text-align: center;
-    }
-    #searchBar {
-        width: 98vw;
-        max-width: 98vw;
-        font-size: 1em;
-        padding: 10px;
-        margin-bottom: 0.7em;
-    }
-    .filter-bar {
-        margin: 0.5em 0 1em 0;
-        padding: 0 4vw;
-        width: 100vw;
-    }
-    .filter-bar select {
-        min-width: 120px;
-        max-width: 98vw;
-        width: 100%;
-        font-size: 1em;
-        padding: 0.5em 0.7em;
-    }
-    nav {
-        flex-direction: row;
-        gap: 6px;
-        font-size: 0.98em;
-        margin-top: 8px;
-        margin-bottom: 8px;
-    }
-    nav a {
-        min-width: 100px;
-        font-size: 1.15em;
-        padding: 12px 18px;
-    }
-    section {
-        margin-bottom: 24px;
-        padding: 0 2px;
-    }
-    h2 {
-        font-size: 1.2em;
-        margin-top: 18px;
-        margin-bottom: 10px;
-    }
-    .ads-container {
-        flex-direction: row !important;
-        flex-wrap: wrap;
-        gap: 8px;
-        justify-content: center;
-    }
-    .ad {
-        width: 92vw !important;
-        max-width: 95vw !important;
-        margin-bottom: 8px;
-        padding: 8px 2vw 8px 2vw;
-    }
-    .ad img {
-        max-width: 90vw;
-        height: auto;
-    }
-    #tank-details-container {
-        padding: 6px;
-        max-width: 99vw;
-    }
-    footer {
-        font-size: 0.95em;
-        padding: 10px 0 6px 0;
-        margin-top: 18px;
-    }
-    table, th, td {
-        font-size: 1.13em !important;
-    }
-}
-
-/* Pour les très petits écrans */
-@media (max-width: 400px) {
-    .main-title {
-        font-size: 1em;
-    }
-    .ad {
-        max-width: 99vw;
-        padding: 6px 2px 6px 2px;
-    }
-    .ad img {
-        max-width: 95vw;
-    }
-    .filter-bar select {
-        font-size: 0.95em;
-        padding: 0.4em 0.5em;
-    }
-}
-
-/* Menu déroulant mobile */
+/* Menu mobile */
 .mobile-menu {
     display: none;
 }
@@ -427,6 +257,11 @@ nav a:hover, nav a.active {
     margin-top: 4px;
     width: 100%;
 }
+@media (max-width: 900px) {
+    .ads-container { flex-direction: column; align-items: center; }
+    #tank-details-container { padding: 12px; }
+    iframe { width: 100% !important; height: 220px !important; }
+}
 @media (max-width: 700px) {
     .desktop-nav {
         display: none !important;
@@ -437,5 +272,92 @@ nav a:hover, nav a.active {
         align-items: center;
         width: 100%;
         position: relative;
+    }
+    .container {
+        max-width: 100%;
+        padding: 0 6px;
+    }
+    .main-title {
+        font-size: 1.5em;
+        margin-bottom: 8px;
+    }
+    #searchBar {
+        width: 98%;
+        font-size: 1em;
+        padding: 10px;
+    }
+    .filter-bar {
+        margin: 0.5em 0 1em 0;
+        padding: 0 4vw;
+        width: 100vw;
+    }
+    .filter-bar select {
+        min-width: 120px;
+        max-width: 98vw;
+        width: 100%;
+        font-size: 1em;
+        padding: 0.5em 0.7em;
+    }
+    .ads-container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        justify-content: center;
+        flex-direction: row !important;
+    }
+    .ad {
+        width: 98vw !important;
+        min-width: unset !important;
+        max-width: 99vw;
+        margin-bottom: 8px;
+        padding: 10px 4px 10px 4px;
+    }
+    .ad img {
+        max-width: 96vw;
+        height: auto;
+    }
+    #tank-details-container {
+        padding: 10px;
+        max-width: 99vw;
+    }
+    nav {
+        flex-direction: row;
+        gap: 8px;
+    }
+    nav a {
+        width: auto;
+        min-width: 90px;
+        text-align: center;
+        font-size: 1em;
+        padding: 10px 16px;
+    }
+    section {
+        padding: 0 2px;
+    }
+    img {
+        max-width: 98vw;
+        height: auto;
+    }
+}
+@media (max-width: 400px) {
+    .ads-container {
+        flex-direction: row !important;
+        flex-wrap: wrap;
+        gap: 8px;
+        justify-content: center;
+    }
+    .ad {
+        width: 99vw !important;
+        min-width: unset !important;
+        max-width: 99vw;
+        margin-bottom: 8px;
+        padding: 6px 2px 6px 2px;
+    }
+    .ad img {
+        max-width: 95vw;
+    }
+    .filter-bar select {
+        font-size: 0.95em;
+        padding: 0.4em 0.5em;
     }
 }

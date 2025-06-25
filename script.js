@@ -87,19 +87,4 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 });
-document.addEventListener('DOMContentLoaded', function() {
-    const menuToggle = document.getElementById('menuToggle');
-    const menuDropdown = document.getElementById('menuDropdown');
-    if(menuToggle && menuDropdown) {
-        menuToggle.addEventListener('click', function() {
-            menuDropdown.classList.toggle('open');
-        });
-        // Ferme le menu si on clique ailleurs
-        document.addEventListener('click', function(e) {
-            if (!menuDropdown.contains(e.target) && e.target !== menuToggle) {
-                menuDropdown.classList.remove('open');
-            }
-        });
-    }
-});
 
