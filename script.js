@@ -92,17 +92,15 @@ document.addEventListener('DOMContentLoaded', () => {
     const menuToggle = document.getElementById('menuToggle');
     const menuDropdown = document.getElementById('menuDropdown');
     if (menuToggle && menuDropdown) {
-        git add .        git add .        menuToggle.addEventListener('click', function(e) {
+        menuToggle.addEventListener('click', function(e) {
             e.stopPropagation();
             menuDropdown.classList.toggle('open');
         });
-        // Ferme le menu si on clique ailleurs
         document.addEventListener('click', function(e) {
             if (!menuDropdown.contains(e.target) && e.target !== menuToggle) {
                 menuDropdown.classList.remove('open');
             }
         });
-        // Ferme le menu quand on clique sur un lien du menu
         menuDropdown.querySelectorAll('a').forEach(link => {
             link.addEventListener('click', () => {
                 menuDropdown.classList.remove('open');
